@@ -23,6 +23,8 @@ import org.yearup.models.User;
 import org.yearup.security.jwt.JWTFilter;
 import org.yearup.security.jwt.TokenProvider;
 
+import java.util.HashMap;
+
 @RestController
 @CrossOrigin
 @PreAuthorize("permitAll()")
@@ -68,14 +70,11 @@ public class AuthenticationController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ResponseEntity<User> register(@Valid @RequestBody RegisterUserDto newUser) {
-
-        try
-        {
+    public ResponseEntity<?> register(@Valid @RequestBody RegisterUserDto newUser) {
+        try {
             boolean exists = userDao.exists(newUser.getUsername());
-            if (exists)
-            {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User Already Exists.");
+            if (exists) {
+                return new ResponseEntity<>(HttpStatus.CREATED); // This seems like it might cause issues later, good luck
             }
 
             // create user
@@ -88,9 +87,8 @@ public class AuthenticationController {
 
             return new ResponseEntity<>(user, HttpStatus.CREATED);
         }
-        catch (Exception e)
-        {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+        catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Registration failed: " + e.getMessage());
         }
     }
 
