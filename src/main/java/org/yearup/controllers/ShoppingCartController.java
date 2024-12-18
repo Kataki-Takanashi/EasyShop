@@ -23,6 +23,8 @@ import org.yearup.models.ShoppingCartItem;
 import org.yearup.models.User;
 
 import java.security.Principal; // Helps with auth stuff
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @PreAuthorize("hasRole('ROLE_USER')")
@@ -43,12 +45,31 @@ public class ShoppingCartController
     }
 
     @GetMapping
-    public ShoppingCart getCart(Principal principal) {
+    public Map<String, Object> getCart(Principal principal) {
         try {
             String userName = principal.getName();
-            // find database user by userId
             User user = userDao.getByUserName(userName);
-            return shoppingCartDao.getByUserId(user.getId());
+            ShoppingCart cart = shoppingCartDao.getByUserId(user.getId());
+
+            // Return correct formatted JSON
+            Map<String, Object> response = new HashMap<>();
+            Map<String, Object> items = new HashMap<>();
+
+            for (Map.Entry<Integer, ShoppingCartItem> entry : cart.getItems().entrySet()) {
+                ShoppingCartItem item = entry.getValue();
+                Map<String, Object> itemDetails = new HashMap<>();
+                itemDetails.put("product", item.getProduct());
+                itemDetails.put("quantity", item.getQuantity());
+                itemDetails.put("discountPercent", item.getDiscountPercent());
+                itemDetails.put("lineTotal", item.getLineTotal());
+
+                items.put(String.valueOf(entry.getKey()), itemDetails);
+            }
+
+            response.put("items", items);
+            response.put("total", cart.getTotal());
+
+            return response; // Return the formatted response
         } catch(Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error getting cart");
         }
