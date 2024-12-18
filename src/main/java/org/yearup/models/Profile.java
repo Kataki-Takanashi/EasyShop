@@ -11,6 +11,7 @@ public class Profile
     private String city = "";
     private String state = "";
     private String zip = "";
+    private String phoneNumber;
 
     public Profile()
     {
@@ -117,5 +118,15 @@ public class Profile
     public void setZip(String zip)
     {
         this.zip = zip;
+    }
+
+    public String getPhoneNumber()
+    {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber)
+    {
+        this.phoneNumber = phoneNumber;
     }
 }

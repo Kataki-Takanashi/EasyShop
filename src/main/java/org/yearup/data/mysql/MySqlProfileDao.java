@@ -12,7 +12,8 @@ import java.util.logging.Logger;
 
 @Component
 public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao {
-    Logger logger;
+    private final Logger logger;
+
     public MySqlProfileDao(DataSource dataSource, Logger logger)
     {
         super(dataSource);
