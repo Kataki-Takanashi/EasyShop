@@ -93,7 +93,7 @@ public class OrdersController {
             lineItems.add(orderLineItem);
         }
 
-        shoppingCartDao.clearCart(currentUserId);
+        shoppingCartDao.clearCart(currentUserId); // Clearing cart after order is made.
 
         OrderResponse orderResponse = new OrderResponse(order, lineItems);
         return ResponseEntity.status(HttpStatus.CREATED).body(orderResponse);
