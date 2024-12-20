@@ -24,15 +24,20 @@ header div{
 
 header #links
 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     gap: 20px;
-    justify-content: flex-start;
-    align-items: flex-end;
     padding-right: 20px;
+}
+
+header #links span {
+    margin-right: 10px;
 }
 
 header .cart
 {
-    font-size: x-large;
+    font-size: 1.5em;
     padding-left: 10px;
     padding-right: 10px;
     cursor: pointer;
@@ -40,7 +45,7 @@ header .cart
 
 header .cart #cart-items
 {
-    font-size: .7em;
+    font-size: 1em;
     height: 50%;
     align-items: start;
     padding-left: 5px;
@@ -143,17 +148,16 @@ main > .content-form .cart-item
 .product .body-card {
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
     transition: transform 0.5s ease;
+    color: white;
+    text-shadow: 1px 1px 2px black;
 }
 
 .product .body-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: 100%;
-    padding: 10px 20px;
+    padding: 5px 10px;
 }
 
 .product .name {
@@ -173,11 +177,12 @@ main > .content-form .cart-item
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.3s ease, transform 0.5s ease;
-    margin-top: 10px;
+    margin-top: 0.5rem;
 }
 
 .product:hover .body-card {
-    transform: translateY(-100%);
+    transform: translateY(-1%);
+    transition: transform 0.5s ease;
 }
 
 .product:hover .body-footer {
@@ -207,7 +212,7 @@ main > .content-form .cart-item
 
 .hidden
 {
-    display: none !important;
+    display: none;
 }
 
 .modal
@@ -275,4 +280,77 @@ main > .content-form .cart-item
     transform: translateY(-10px);
     transition: transform 0.5s ease;
 }
+
+/* Style for specific links to look like buttons */
+#links a {
+    display: inline-block; /* Make links behave like buttons */
+    color: #454545; /* Text color */
+    background: transparent; /* Transparent background */
+    border-width: 2px;
+    border-style: solid;
+    border-color: #454545; /* Border color */
+    margin: 0.5em; /* Reduced margin */
+    padding: 0.3em 0.8em; /* Smaller padding for buttons */
+    text-align: center; /* Center text */
+    font-family: 'Comfortaa', sans-serif; /* Font family */
+    font-weight: bold; /* Bold text */
+    position: relative; /* Position for pseudo-elements */
+    transition: all 0.3s ease-in-out; /* Smooth transition */
+    font-size: 0.9em; /* Smaller font size */
+}
+
+#links a:before, #links a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-color: #454545; /* Border color */
+    box-sizing: border-box;
+    border-style: solid;
+    width: 1em;
+    height: 1em;
+    transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+#links a:before {
+    top: -6px;
+    left: -6px;
+    border-width: 2px 0 0 2px; /* Top-left border */
+    z-index: 5; /* Ensure it’s above other elements */
+}
+
+#links a:after {
+    bottom: -6px;
+    right: -6px;
+    border-width: 0 2px 2px 0; /* Bottom-right border */
+}
+
+#links a:hover:before, #links a:hover:after {
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    border-color: #fff; /* Change border color on hover */
+}
+
+#links a:hover {
+    color: #353535; /* Change text color on hover */
+    background-color: #fff; /* Background color on hover */
+    border-color: #fff; /* Change border color on hover */
+}
+
+/* Specific styles for the logout button */
+#links .logout {
+    color: #eb1777; /* Change color for logout button */
+    border-color: #eb1777; /* Change border color for logout button */
+    margin-left: 10px; /* Space between username and logout button */
+}
+
+#links .logout:hover {
+    color: #fff; /* Change text color on hover */
+    background-color: #eb1777; /* Background color on hover */
+    border-color: #eb1777; /* Change border color on hover */
+}
+
+#links .view-cart {
+    display: none; /* Completely removes the button from the layout */
+}
+
 
