@@ -6,14 +6,15 @@ header
 
     height: 10vh;
 
-    padding: 5px 15px;
+    padding: 15px 30px;
     border-bottom: solid 1px #555;
-    box-shadow: 5px 2px #eee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 header img
 {
-    height: 100%;
+    height: 80%;
+    object-fit: contain;
 }
 
 header div{
@@ -28,7 +29,6 @@ header #links
     justify-content: flex-end;
     align-items: center;
     gap: 20px;
-    padding-right: 20px;
 }
 
 header #links span {
@@ -37,17 +37,20 @@ header #links span {
 
 header .cart
 {
+    display: flex;
+    align-items: center;
     font-size: 1.5em;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px;
     cursor: pointer;
+}
+
+header .cart:active {
+    cursor: grabbing;
 }
 
 header .cart #cart-items
 {
     font-size: 1em;
-    height: 50%;
-    align-items: start;
     padding-left: 5px;
 }
 
@@ -82,7 +85,7 @@ main > .content-form
 {
     display: flex;
     flex-direction: column;
-    padding-right: 20px;
+    padding: 0 20px;
 }
 
 main > .content-form .cart-header,
@@ -156,18 +159,28 @@ main > .content-form .cart-item
     justify-content: space-between;
     width: 100%;
     padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    transition: transform 0.5s ease;
 }
 
 .product .name {
     font-size: 20px;
     font-weight: bold;
     margin-right: 15px;
+    color: #353535;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .product .price {
     font-size: 18px;
-    color: #924a24;
+    color: #d4af37;
     margin-left: 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
 }
 
 .product .body-footer {
@@ -191,6 +204,14 @@ main > .content-form .cart-item
 .product .description {
     margin-bottom: 10px;
     font-size: 16px;
+    color: #353535;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 5px 10px;
 }
 
 .modal-body img
@@ -231,7 +252,7 @@ main > .content-form .cart-item
 {
     position: relative;
     width: 400px;
-    background: inherit;
+    background: transparent;
 }
 
 .modal-content {
@@ -265,15 +286,20 @@ main > .content-form .cart-item
     width: 100vw;
     padding-top: 5px;
     opacity: 90%;
+    z-index: 9999;
 }
 #errors > div{
     width: 33vw;
+    position: relative;
+    z-index: 9999;
 }
 
 .alert
 {
     margin-bottom: 2px !important;
     border-radius: 5px;
+    position: relative;
+    z-index: 9999;
 }
 
 .alert-success
@@ -301,11 +327,10 @@ main > .content-form .cart-item
 
 .product:hover .body-header {
     transform: translateY(-10px);
-    transition: transform 0.5s ease;
 }
 
 /* Style for specific links to look like buttons */
-#links a {
+#links a, .login-header {
     display: inline-block;
     color: #454545;
     background: transparent;
@@ -320,9 +345,10 @@ main > .content-form .cart-item
     position: relative;
     transition: all 0.3s ease-in-out;
     font-size: 0.9em;
+    text-decoration: none;
 }
 
-#links a:before, #links a:after {
+#links a:before, #links a:after, .login-header:before, .login-header:after {
     content: '';
     display: block;
     position: absolute;
@@ -334,46 +360,37 @@ main > .content-form .cart-item
     transition: all 0.3s ease-in-out;
 }
 
-#links a:before {
+#links a:before, .login-header:before {
     top: -6px;
     left: -6px;
     border-width: 2px 0 0 2px;
     z-index: 5;
 }
 
-#links a:after {
+#links a:after, .login-header:after {
     bottom: -6px;
     right: -6px;
     border-width: 0 2px 2px 0;
 }
 
-#links a:hover:before, #links a:hover:after {
+#links a:hover:before, #links a:hover:after, 
+.login-header:hover:before, .login-header:hover:after {
     width: calc(100% + 12px);
     height: calc(100% + 12px);
-    border-color: #fff;
+    border-color: #454545;
 }
 
-#links a:hover {
-    color: #353535;
-    background-color: #fff;
-    border-color: #fff;
-}
-
-/* Specific styles for the logout button */
-#links .logout {
-    color: #eb1777;
-    border-color: #eb1777;
+/* Specific styles for the login button */
+#links .login, .login-header {
+    color: #198754;
+    border-color: #198754;
     margin-left: 10px;
 }
 
-#links .logout:hover {
+#links .login:hover, .login-header:hover {
     color: #fff;
-    background-color: #eb1777;
-    border-color: #eb1777;
-}
-
-#links .view-cart {
-    display: none;
+    background-color: #198754;
+    border-color: #198754;
 }
 
 /* Modal base styles */
@@ -393,7 +410,7 @@ main > .content-form .cart-item
 .modal-dialog {
     position: relative;
     width: 400px;
-    background: inherit;
+    background: transparent;
 }
 
 .modal-content {
@@ -451,4 +468,418 @@ main > .content-form .cart-item
 
 .btn-secondary {
     background-color: rgba(108, 117, 125, 0.8);
+}
+
+/* Animation related styles */
+.cart-animation {
+    position: absolute;
+    z-index: 1000;
+    transition: all 0.5s ease-in-out;
+    pointer-events: none; /* Prevents the clone from interfering with clicks */
+}
+
+/* Optional: Add a subtle animation to the cart when item arrives */
+@keyframes cartShake {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+.cart-shake {
+    animation: cartShake 0.5s ease-in-out;
+}
+
+.btn-success.add-to-cart {
+    position: relative; /* Required for the shine effect */
+    border: none;
+    background: rgb(25,135,84);
+    background: linear-gradient(0deg, rgba(25,135,84,1) 0%, rgba(40,167,69,1) 100%);
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-success.add-to-cart:hover {
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.btn-success.add-to-cart:before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #fff;
+    animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+.btn-success.add-to-cart:active {
+    box-shadow: 4px 4px 6px 0 rgba(255,255,255,.3),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+                inset -4px -4px 6px 0 rgba(255,255,255,.2),
+                inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+@keyframes shiny-btn1 {
+    0% { transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { transform: scale(50) rotate(45deg); opacity: 0; }
+}
+
+.filter-box {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.filter-box h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(25, 135, 84, 0.3);
+}
+
+/* Style for select dropdowns */
+.filter-box .form-select {
+    border: 1px solid rgba(25, 135, 84, 0.2);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.filter-box .form-select:hover {
+    border-color: rgba(25, 135, 84, 0.5);
+}
+
+.filter-box .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+/* Price range sliders */
+.filter-box .form-range {
+    height: 6px;
+    background: rgba(25, 135, 84, 0.1);
+}
+
+.filter-box .form-range::-webkit-slider-thumb {
+    background: #198754;
+    box-shadow: 0 0 10px rgba(25, 135, 84, 0.5);
+    transition: all 0.3s ease;
+}
+
+.filter-box .form-range::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* Price labels */
+.filter-box .form-label {
+    color: #444;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.filter-box #min-price-display,
+.filter-box #max-price-display {
+    color: #198754;
+    font-weight: bold;
+}
+
+/* Add some spacing between filter sections */
+.filter-box > div {
+    margin-bottom: 20px;
+}
+
+/* Optional: Add a nice hover effect to the entire filter box */
+.filter-box:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+.modal .btn-close {
+    background-color: rgba(108, 117, 125, 0.8);
+    padding: 8px;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.modal .btn-close:hover {
+    background-color: rgba(108, 117, 125, 1);
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.modal-header {
+    border-bottom: none;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Base button styles */
+.btn-primary, .btn-outline-danger {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    margin: 0 10px;
+    padding: 10px 20px;
+    box-shadow: 0 0 20px rgba(25, 135, 84, 0.2);
+    transition: all 0.4s ease;
+}
+
+/* Login button style */
+.modal-footer {
+    justify-content: center !important;
+    border-top: none;
+    padding-top: 1rem;
+}
+
+.modal-footer .btn-primary {
+    color: #198754;
+    background-color: white;
+    border: 2px solid #198754;
+    min-width: 200px;
+}
+
+.modal-footer .btn-primary:hover {
+    color: white;
+    background: linear-gradient(to right, #198754, #28a745);
+    box-shadow: 0 0 20px rgba(25, 135, 84, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Update profile button style */
+.btn-outline-danger {
+    color: #dc3545;
+    background-color: white;
+    border: 2px solid #dc3545;
+    min-width: 150px;
+}
+
+.btn-outline-danger:hover {
+    color: white;
+    background: linear-gradient(to right, #dc3545, #e35d6a);
+    box-shadow: 0 0 20px rgba(220, 53, 69, 0.4);
+    transform: translateY(-2px);
+}
+
+
+
+/* Base styles for all nav buttons */
+#links a {
+    display: inline-block;
+    color: #2c3e50;
+    background: transparent;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #2c3e50;
+    margin: 0.5em;
+    padding: 0.3em 0.8em;
+    text-align: center;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    font-size: 0.9em;
+    text-decoration: none;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+#links a:before, #links a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-color: #2c3e50;
+    box-sizing: border-box;
+    border-style: solid;
+    width: 1em;
+    height: 1em;
+    transition: all 0.3s ease-in-out;
+}
+
+#links a:before {
+    top: -6px;
+    left: -6px;
+    border-width: 2px 0 0 2px;
+    z-index: 5;
+}
+
+#links a:after {
+    bottom: -6px;
+    right: -6px;
+    border-width: 0 2px 2px 0;
+}
+
+#links a:hover:before, #links a:hover:after {
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    border-color: #2c3e50;
+}
+
+#links a:hover {
+    color: #fff;
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.15);
+}
+
+/* Specific styles for the login button */
+.login-header {
+    display: inline-block;
+    color: #198754;
+    background: transparent;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #198754;
+    margin: 0.5em;
+    padding: 0.3em 0.8em;
+    text-align: center;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+.login-header:before, .login-header:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-color: #198754;
+    box-sizing: border-box;
+    border-style: solid;
+    width: 1em;
+    height: 1em;
+    transition: all 0.3s ease-in-out;
+}
+
+.login-header:before {
+    top: -6px;
+    left: -6px;
+    border-width: 2px 0 0 2px;
+    z-index: 5;
+}
+
+.login-header:after {
+    bottom: -6px;
+    right: -6px;
+    border-width: 0 2px 2px 0;
+}
+
+.login-header:hover:before, .login-header:hover:after {
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    border-color: #198754;
+}
+
+.login-header:hover {
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+}
+
+/* Specific styles for the logout button */
+#links .logout {
+    color: #eb1777;
+    border-color: #eb1777;
+    margin-left: 10px;
+}
+
+#links .logout:hover {
+    color: #fff;
+    background-color: #eb1777;
+    border-color: #eb1777;
+}
+
+#links .logout:hover:before, #links .logout:hover:after {
+    border-color: #eb1777;
+}
+
+/* Hide view cart button */
+#links .view-cart {
+    display: none;
+}
+
+/* Override for cart page */
+.cart-page main {
+    display: block;  /* Remove grid layout for cart page */
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Default main layout */
+main {
+    margin-top: 15px;
+    height: 87vh;
+}
+
+/* Product page specific layout */
+.product-page main {
+    display: grid;
+    grid-template-columns: 350px auto;
+}
+
+/* Cart page layout */
+.cart-page main {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+
+/* Form fields styling */
+.content-form input,
+.content-form select {
+    width: 100%;
+    padding: 8px;
+    margin: 2px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    box-sizing: border-box;
+    min-width: 0;
+    overflow: visible;
+}
+
+.content-form label {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+}
+
+/* Style for the Clear Cart button */
+.cart-header .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.cart-header .btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(220, 53, 69, 0.3);
+}
+
+.cart-header .btn-danger:active {
+    transform: translateY(0);
+    box-shadow: none;
 }

@@ -11,7 +11,7 @@
         </div>
         <div class="body-footer">
             <p class="description">{{description}}</p>
-            <button class="btn btn-success add-to-cart" onclick="cartService.addToCart('{{productId}}')">Add to Cart</button>
+            <button class="btn btn-success add-to-cart" onclick="addToCart(this); cartService.addToCart('{{productId}}')">Add to Cart</button>
         </div>
     </div>
 </div>

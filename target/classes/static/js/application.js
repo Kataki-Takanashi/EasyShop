@@ -122,7 +122,71 @@ function closeError(control)
     },3000);
 }
 
+function addToCart(button) {
+    // Get the product image
+    const productCard = button.closest('.product');
+    const productImg = productCard.querySelector('.photo img');
+    
+    // Get cart icon position - targeting the cart element itself
+    const cart = document.querySelector('.cart'); // Target the entire cart container
+    const cartRect = cart.getBoundingClientRect();
+    
+    // Create image clone
+    const imgClone = productImg.cloneNode(true);
+    const startRect = productImg.getBoundingClientRect();
+    
+    // Style the cloned image
+    imgClone.style.position = 'fixed';
+    imgClone.style.top = startRect.top + 'px';
+    imgClone.style.left = startRect.left + 'px';
+    imgClone.style.width = startRect.width + 'px';
+    imgClone.style.height = startRect.height + 'px';
+    imgClone.style.opacity = '0.75';
+    imgClone.style.pointerEvents = 'none';
+    imgClone.style.zIndex = '1000';
+    imgClone.classList.add('cart-animation');
+    
+    // Add clone to body
+    document.body.appendChild(imgClone);
+    
+    // Start animation in next frame with adjusted position
+    requestAnimationFrame(() => {
+        imgClone.style.transform = 'scale(0.25)';
+        imgClone.style.top = (cartRect.top + window.scrollY) + 'px';
+        imgClone.style.left = (cartRect.left) + 'px'; // Removed the width/2 adjustment
+        imgClone.style.opacity = '0';
+    });
+    
+    // Clean up and add cart shake effect
+    setTimeout(() => {
+        imgClone.remove();
+        cart.classList.add('cart-shake');
+        setTimeout(() => cart.classList.remove('cart-shake'), 500);
+    }, 500);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     loadHome();
 });
+
+function setupPage(page) {
+    if (page === 'products') {
+        // Only add filter box for products page
+        main.innerHTML = `
+            <div class="filter-box">
+                <!-- filter content -->
+            </div>
+            <div id="content" class="content-form">
+                <!-- product content -->
+            </div>
+        `;
+    } else if (page === 'cart') {
+        // Cart page without filter box
+        main.innerHTML = `
+            <div id="content" class="content-form">
+                <!-- cart content -->
+            </div>
+        `;
+    }
+}
