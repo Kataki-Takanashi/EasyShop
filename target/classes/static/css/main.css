@@ -149,8 +149,6 @@ main > .content-form .cart-item
     position: absolute;
     bottom: 0;
     transition: transform 0.5s ease;
-    color: white;
-    text-shadow: 1px 1px 2px black;
 }
 
 .product .body-header {
@@ -219,18 +217,43 @@ main > .content-form .cart-item
 {
     display: flex;
     justify-content: center;
-    position: absolute;
+    align-items: center;
+    position: fixed;
     top: 0;
-    background-color: #777777aa;
+    left: 0;
     width: 100vw;
     height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    padding: 30px;
 }
 
 .modal-dialog
 {
-    width: 50vw;
+    position: relative;
+    width: 400px;
+    background: inherit;
+}
+
+.modal-content {
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+}
+
+.modal-header {
+    border-bottom: none;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modal-body img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
 #errors
@@ -283,74 +306,149 @@ main > .content-form .cart-item
 
 /* Style for specific links to look like buttons */
 #links a {
-    display: inline-block; /* Make links behave like buttons */
-    color: #454545; /* Text color */
-    background: transparent; /* Transparent background */
+    display: inline-block;
+    color: #454545;
+    background: transparent;
     border-width: 2px;
     border-style: solid;
-    border-color: #454545; /* Border color */
-    margin: 0.5em; /* Reduced margin */
-    padding: 0.3em 0.8em; /* Smaller padding for buttons */
-    text-align: center; /* Center text */
-    font-family: 'Comfortaa', sans-serif; /* Font family */
-    font-weight: bold; /* Bold text */
-    position: relative; /* Position for pseudo-elements */
-    transition: all 0.3s ease-in-out; /* Smooth transition */
-    font-size: 0.9em; /* Smaller font size */
+    border-color: #454545;
+    margin: 0.5em;
+    padding: 0.3em 0.8em;
+    text-align: center;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    font-size: 0.9em;
 }
 
 #links a:before, #links a:after {
     content: '';
     display: block;
     position: absolute;
-    border-color: #454545; /* Border color */
+    border-color: #454545;
     box-sizing: border-box;
     border-style: solid;
     width: 1em;
     height: 1em;
-    transition: all 0.3s ease-in-out; /* Smooth transition */
+    transition: all 0.3s ease-in-out;
 }
 
 #links a:before {
     top: -6px;
     left: -6px;
-    border-width: 2px 0 0 2px; /* Top-left border */
-    z-index: 5; /* Ensure it’s above other elements */
+    border-width: 2px 0 0 2px;
+    z-index: 5;
 }
 
 #links a:after {
     bottom: -6px;
     right: -6px;
-    border-width: 0 2px 2px 0; /* Bottom-right border */
+    border-width: 0 2px 2px 0;
 }
 
 #links a:hover:before, #links a:hover:after {
     width: calc(100% + 12px);
     height: calc(100% + 12px);
-    border-color: #fff; /* Change border color on hover */
+    border-color: #fff;
 }
 
 #links a:hover {
-    color: #353535; /* Change text color on hover */
-    background-color: #fff; /* Background color on hover */
-    border-color: #fff; /* Change border color on hover */
+    color: #353535;
+    background-color: #fff;
+    border-color: #fff;
 }
 
 /* Specific styles for the logout button */
 #links .logout {
-    color: #eb1777; /* Change color for logout button */
-    border-color: #eb1777; /* Change border color for logout button */
-    margin-left: 10px; /* Space between username and logout button */
+    color: #eb1777;
+    border-color: #eb1777;
+    margin-left: 10px;
 }
 
 #links .logout:hover {
-    color: #fff; /* Change text color on hover */
-    background-color: #eb1777; /* Background color on hover */
-    border-color: #eb1777; /* Change border color on hover */
+    color: #fff;
+    background-color: #eb1777;
+    border-color: #eb1777;
 }
 
 #links .view-cart {
-    display: none; /* Completely removes the button from the layout */
+    display: none;
 }
 
+/* Modal base styles */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
 
+.modal-dialog {
+    position: relative;
+    width: 400px;
+    background: inherit;
+}
+
+.modal-content {
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+}
+
+/* Header styles */
+.modal-header {
+    border-bottom: none;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Form styles */
+.modal-body {
+    color: white;
+}
+
+.form-floating label {
+    color: #666;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+/* Footer styles */
+.modal-footer {
+    border-top: none;
+    padding-top: 1rem;
+}
+
+/* Button styles */
+.modal-footer .btn {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary {
+    background-color: rgba(13, 110, 253, 0.8);
+}
+
+.btn-secondary {
+    background-color: rgba(108, 117, 125, 0.8);
+}
