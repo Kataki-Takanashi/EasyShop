@@ -111,10 +111,20 @@ public class ShoppingCartController
 
     @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PreAuthorize("hasRole('ROLE_USER')")
     public void clearCart(Principal principal) {
+        if (principal == null) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "User not authenticated");
+        }
+
+        String userName = principal.getName();
+        User user = userDao.getByUserName(userName);
+        
+        if (user == null) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "User not found");
+        }
+
         try {
-            String userName = principal.getName();
-            User user = userDao.getByUserName(userName);
             shoppingCartDao.clearCart(user.getId());
         } catch(Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error clearing cart");

@@ -12208,3 +12208,15 @@ textarea.form-control-lg {
 .offcanvas .btn-close {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23dfd7ca'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
 }
+
+/* New Theme EasyShop */
+:root {
+  --bs-primary: #A0522D; /* Warm Brown */
+  --bs-success: #93c54b; /* Soft Green */
+  --bs-warning: #f47c3c; /* Coral */
+  --bs-danger: #d9534f; /* Red */
+  --bs-light: #F5F5DC; /* Soft Cream */
+  --bs-dark: #3e3f3a; /* Dark Charcoal */
+  --bs-link-color: #008080; /* Muted Teal */
+  --bs-link-hover-color: #FF7F50; /* Coral */
+}

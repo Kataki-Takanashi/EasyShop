@@ -95,8 +95,9 @@ main > .content-form .cart-item
 .content-form .photo img
 {
     width: 100px;
-    cursor: pointer;
-    border: solid 1px #ccc;
+    height: 100px;
+    object-fit: cover;
+    border: none;
 }
 
 .content-form .cart-header
@@ -116,31 +117,77 @@ main > .content-form .cart-item
 {
     display: flex;
     flex-direction: column;
-
-    justify-content: space-between;
-    /*width: 30%;*/
+    justify-content: flex-start;
     border: solid 1px #ccc;
     padding: 5px;
     border-radius: 5px;
     margin: 5px;
-}
-.product  .photo
-{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px 10px 10px;
-}
-.product  .photo > img
-{
-    width: 33%;
-    cursor: pointer;
-    border: solid 1px #ccc;
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.product .price
-{
-    font-weight: 900;
+.product .photo {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.product .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product .body-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: transform 0.5s ease;
+}
+
+.product .body-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.product .name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.product .price {
+    font-size: 18px;
     color: #924a24;
+    margin-left: 15px;
+}
+
+.product .body-footer {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.3s ease, transform 0.5s ease;
+    margin-top: 10px;
+}
+
+.product:hover .body-card {
+    transform: translateY(-100%);
+}
+
+.product:hover .body-footer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product .description {
+    margin-bottom: 10px;
+    font-size: 16px;
 }
 
 .modal-body img
@@ -198,5 +245,34 @@ main > .content-form .cart-item
 .alert
 {
     margin-bottom: 2px !important;
+    border-radius: 5px;
+}
+
+.alert-success
+{
+    background-color: #A8DADC;
+    color: #264653;
+}
+
+.alert-danger
+{
+    background-color: #F4A261;
+    color: white;
+}
+
+.btn {
+    background-color: #008080;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #93c54b;
+}
+
+.product:hover .body-header {
+    transform: translateY(-10px);
+    transition: transform 0.5s ease;
 }
 
