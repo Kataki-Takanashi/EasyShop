@@ -115,3 +115,7 @@ This code showcases several features of the shopping cart:
    - Better organized shopping
    - Intuitive category navigation
    - Smart product recommendations
+
+10. **Checkout Process** 🛒
+    - Secure and seamless checkout
+    - Reset cart after checkout
