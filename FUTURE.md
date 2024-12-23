@@ -41,3 +41,7 @@
 10. **Basic Contact Form**
     - Provide a way for users to contact support or ask questions.
     - **Changes Needed**: Create a simple contact form that submits inquiries to an email or database.
+
+11. **Checkout Process** 🛒
+   - Secure and seamless checkout
+   - Reset cart after checkout
