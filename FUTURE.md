@@ -1,4 +1,4 @@
-# Future Features for E-Commerce Application
+# Future Features for EasyShop
 
 ## Potential Features
 
