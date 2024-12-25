@@ -38,6 +38,6 @@
    - Organize products into categories for easier navigation.
    - **Changes Needed**: Create a category model and update the product listing to filter by category.
 
-10. **Checkout Process** 🛒
+10. **Checkout Process**
    - Secure and seamless checkout
    - Reset cart after checkout
