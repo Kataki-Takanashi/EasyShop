@@ -101,21 +101,21 @@ This code showcases several features of the shopping cart:
 5. **Promotions and Discounts** 🏷️
    - Apply promotional codes at checkout
 
-7. **Advanced Payment Integration** 💳
+6. **Advanced Payment Integration** 💳
    - Multiple payment options
    - Secure transaction processing
    - Save payment methods
 
-8. **Mobile-Friendly Design** 📱
+7. **Mobile-Friendly Design** 📱
    - Shop on any device
    - Responsive interface
    - Touch-optimized navigation
 
-9. **Enhanced Product Categories** 📑
+8. **Enhanced Product Categories** 📑
    - Better organized shopping
    - Intuitive category navigation
    - Smart product recommendations
-
-10. **Checkout Process** 🛒
+   
+9. **Checkout Process** 🛒
     - Secure and seamless checkout
     - Reset cart after checkout
