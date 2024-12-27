@@ -1,6 +1,5 @@
 # Future Features for EasyShop
 
-## Potential Features
 
 1. **User Reviews and Ratings**
    - Allow users to leave reviews and ratings for products.
