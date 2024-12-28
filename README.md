@@ -119,3 +119,5 @@ This code showcases several features of the shopping cart:
 9. **Checkout Process** 🛒
     - Secure and seamless checkout
     - Reset cart after checkout
+
+See [our future features file](FUTURE.md) for more.
