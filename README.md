@@ -120,4 +120,4 @@ This code showcases several features of the shopping cart:
     - Secure and seamless checkout
     - Reset cart after checkout
 
-See [our future features file](FUTURE.md) for more.
+See [our future features file](FUTURE.md) for more details.
