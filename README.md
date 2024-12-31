@@ -17,7 +17,7 @@ EasyShop is a modern e-commerce application that makes shopping easy!
 Key Features:
 - Browse through our **extensive product catalog** with items from electronics to fashion to Home and Kitchen
 - Smart filtering by `category`, `price range`, and `color` 
-- Smooth **shopping cart** experience with animated front end
+- Smooth **shopping cart** experience with animated FrontEnd
 - Secure user authentication and profile management
 - Seamless checkout process with shipping details
 - Beautiful product imagery and detailed descriptions
