@@ -87,6 +87,7 @@ This code showcases several features of the shopping cart:
 
 
 1. **User Reviews and Ratings** ⭐
+   - Show how positive of negative a product is reviewed on average.
 
 2. **Wishlist Functionality** 💝
    - Save your favorite items for later
