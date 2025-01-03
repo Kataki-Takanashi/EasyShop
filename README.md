@@ -21,6 +21,32 @@ Key Features:
 - Secure user authentication and profile management
 - Seamless checkout process with shipping details
 - Beautiful product imagery and detailed descriptions
+- Modern UI with Animations
+
+
+---
+
+### Screenshots
+
+<p align="center">
+  <img src="src/main/resources/static/images/Screenshots/Home.png" alt="Home Page" width="700"/>
+</p>
+
+<p align="center">
+  <img src="src/main/resources/static/images/Screenshots/Product.png" alt="Product Modal" width="700"/>
+</p>
+
+<p align="center">
+  <img src="src/main/resources/static/images/Screenshots/Login.png" alt="Login Modal" width="700"/>
+</p>
+
+<p align="center">
+  <img src="src/main/resources/static/images/Screenshots/Cart.png" alt="Cart Page" width="700"/>
+</p>
+
+<p align="center">
+  <img src="src/main/resources/static/images/Screenshots/Profile.png" alt="Profile Page" width="700"/>
+</p>
 
 
 ---
