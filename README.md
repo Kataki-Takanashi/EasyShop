@@ -28,25 +28,32 @@ Key Features:
 
 ### Screenshots
 
-<p align="center">
-  <img src="src/main/resources/static/images/Screenshots/Home.png" alt="Home Page" width="700"/>
-</p>
+<!--Note: The formatting for the screenshots may not render as expected on GitHub.-->
 
-<p align="center">
-  <img src="src/main/resources/static/images/Screenshots/Product.png" alt="Product Modal" width="700"/>
-</p>
+<div align="center" style="border: 5px solid #28a745; border-radius: 15px; padding: 10px; background-color: #eaf7ff; margin-bottom: 20px;">
+   <h2 style="color: #333;">Home Page</h2>
+   <img src="src/main/resources/static/images/Screenshots/Home.png" alt="Home Page" width="700" style="border-radius: 10px;"/>
+</div>
 
-<p align="center">
-  <img src="src/main/resources/static/images/Screenshots/Login.png" alt="Login Modal" width="700"/>
-</p>
+<div align="center" style="border: 5px solid #28a745; border-radius: 15px; padding: 10px; background-color: #eaf7ff; margin-bottom: 20px;">
+   <h2 style="color: #333;">Product Modal</h2>
+   <img src="src/main/resources/static/images/Screenshots/Product.png" alt="Product Modal" width="700" style="border-radius: 10px;"/>
+</div>
 
-<p align="center">
-  <img src="src/main/resources/static/images/Screenshots/Cart.png" alt="Cart Page" width="700"/>
-</p>
+<div align="center" style="border: 5px solid #28a745; border-radius: 15px; padding: 10px; background-color: #eaf7ff; margin-bottom: 20px;">
+   <h2 style="color: #333;">Login Modal</h2>
+   <img src="src/main/resources/static/images/Screenshots/Login.png" alt="Login Modal" width="700" style="border-radius: 10px;"/>
+</div>
 
-<p align="center">
-  <img src="src/main/resources/static/images/Screenshots/Profile.png" alt="Profile Page" width="700"/>
-</p>
+<div align="center" style="border: 5px solid #28a745; border-radius: 15px; padding: 10px; background-color: #eaf7ff; margin-bottom: 20px;">
+   <h2 style="color: #333;">Cart Page</h2>
+   <img src="src/main/resources/static/images/Screenshots/Cart.png" alt="Cart Page" width="700" style="border-radius: 10px;"/>
+</div>
+
+<div align="center" style="border: 5px solid #28a745; border-radius: 15px; padding: 10px; background-color: #eaf7ff;">
+   <h2 style="color: #333;">Profile Page</h2>
+   <img src="src/main/resources/static/images/Screenshots/Profile.png" alt="Profile Page" width="700" style="border-radius: 10px;"/>
+</div>
 
 
 ---
